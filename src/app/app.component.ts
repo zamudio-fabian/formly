@@ -10,10 +10,12 @@ import { HttpClient } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { DialogContentExampleDialog } from './dialog/dialog-content-example-dialog';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, MatCardModule, MatIconModule, MatButtonModule, CommonModule, FormlyModule, FormlyMaterialModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
+  imports: [ReactiveFormsModule, MatCardModule, MatDialogModule, MatIconModule, MatButtonModule, CommonModule, FormlyModule, FormlyMaterialModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -37,7 +39,7 @@ export class AppComponent implements OnInit {
     },
     {
       id: "v4",
-      name: "Formulario style custom"
+      name: "Custom validation"
     }
   ];
   selectedForm = this.formularios[0].id;
@@ -45,7 +47,9 @@ export class AppComponent implements OnInit {
   fields: FormlyFieldConfig[] = [];
   envioId: any = null;
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient,
+    private readonly dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadJsonData(this.selectedForm);
@@ -79,6 +83,8 @@ export class AppComponent implements OnInit {
           form
         });
       }
+
+      this.envios = [...this.envios];
       this.resetForm();
     }
   }
@@ -87,6 +93,7 @@ export class AppComponent implements OnInit {
     this.envioId = envio.id;
     this.fields = envio.fields;
     this.model = envio.model;
+    this.form = new FormGroup({});
   }
 
   cancelEdit() {
@@ -97,5 +104,16 @@ export class AppComponent implements OnInit {
     this.envioId = null;
       this.model = {};
       this.form = new FormGroup({});
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+      data: { fields: JSON.stringify(this.fields, null, 2) },
+      width: '600px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

@@ -6,7 +6,8 @@
 
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     padding: 20px 20px 0px;
     background-color: #fff;
     border-bottom: solid 1px #9e9a9a;
@@ -39,4 +40,8 @@
         padding: 20px;
     }
 
+}
+
+.mat-mdc-card-content {
+    width: 100%;
 }

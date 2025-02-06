@@ -7,6 +7,7 @@
       }
     </mat-select>
   </mat-form-field>
+  <button mat-button (click)="openDialog()">Ver json</button>
   
 </div>
 <div class="container">
@@ -18,7 +19,7 @@
             <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button type="submit" [disabled]="form.invalid">Guardar</button>
+          <button mat-stroked-button type="submit">Guardar</button>
           @if(envioId){
             <button mat-stroked-button class="ml-4">Cancel</button>
           }

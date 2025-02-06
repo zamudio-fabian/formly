@@ -8,8 +8,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'custom-input',
   template: `
-    <mat-form-field>
-        <mat-label>Custom</mat-label>
+      <img src="https://preview.redd.it/k4o9e5e0zlu51.jpg?auto=webp&s=ee71a7f8d30d5c5954b78d2d2de3edd423e96e40" alt="Angular" width="300">
+    <mat-form-field style="width: 100%">
+        <mat-label>Que lenguaje tiene una secta propia? (la respuesta es python)</mat-label>
         <input matInput [formControl]="formControl" [formlyAttributes]="field">
     </mat-form-field>
   `,
