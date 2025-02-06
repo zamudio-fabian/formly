@@ -1,0 +1,13 @@
+{
+    "data": [
+        {
+          "key": "name",
+          "type": "input",
+          "templateOptions": {
+            "label": "Name",
+            "placeholder": "Enter your name",
+            "required": true
+          }
+        }
+      ]
+}

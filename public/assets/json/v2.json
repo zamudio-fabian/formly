@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "key": "id",
+      "type": "input",
+      "templateOptions": {
+        "label": "Nombre",
+        "required": true
+      },
+      
+      "className": "col-6"
+    },
+    {
+      "key": "input2",
+      "type": "input",
+      "templateOptions": {
+        "label": "Apellido",
+        "required": true
+      },
+      
+      "className": "col-6"
+    },
+    {
+      "key": "documento",
+      "type": "number",
+      "templateOptions": {
+        "label": "DNI",
+        "placeholder": "Solamente numeros...",
+        "required": true
+      },
+      
+      "className": "col-12"
+    },
+    {
+      "key": "cat",
+      "type": "select",
+      "templateOptions": {
+        "label": "Categoría",
+        "options": [
+          { "label": "A", "value": "a" },
+          { "label": "B", "value": "b" },
+          { "label": "C", "value": "c" }
+        ]
+      },
+      
+      "className": "col-12"
+    }
+  ]
+  
+}

@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+          "key": "custom",
+          "type": "custom-input",
+          "templateOptions": {
+            "label": "Escriba el nombre de un lenguaje sobrevalorado",
+            "placeholder": "La respuesta es Python",
+            "required": true
+          },
+          "className": "col-12"
+        }
+      ]
+}
